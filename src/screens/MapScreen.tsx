@@ -43,6 +43,13 @@ export default function MapScreen() {
   const colors = useThemeColors();
   const mapRef = useRef<MapView>(null);
 
+  // Defer MapView mount to avoid RCTEventEmitter race condition on New Architecture
+  const [mapReady, setMapReady] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setMapReady(true), 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Line selection
   const [lineFilter, setLineFilter] = useState('');
   const [filterInput, setFilterInput] = useState('');
@@ -296,6 +303,7 @@ export default function MapScreen() {
   // ── Render ────────────────────────────────────
   return (
     <View style={styles.container}>
+      {mapReady ? (
       <MapView
         ref={mapRef}
         style={styles.map}
@@ -340,6 +348,11 @@ export default function MapScreen() {
           </MarkerAnimated>
         )}
       </MapView>
+      ) : (
+        <View style={[styles.map, { justifyContent: 'center', alignItems: 'center' }]}>
+          <ActivityIndicator size="large" color={colors.primary} />
+        </View>
+      )}
 
       {/* ── Top bar ── */}
       <View style={[styles.topBar, { top: insets.top + 8 }]}>

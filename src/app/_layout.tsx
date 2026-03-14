@@ -1,6 +1,21 @@
 import React, { useCallback, useState } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, LogBox } from 'react-native';
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
+
+// Suppress non-fatal RCTEventEmitter race condition (react-native-maps + New Architecture)
+LogBox.ignoreLogs(['Failed to call into JavaScript module method RCTEventEmitter']);
+
+const originalHandler = ErrorUtils.getGlobalHandler();
+ErrorUtils.setGlobalHandler((error, isFatal) => {
+  if (
+    !isFatal &&
+    error?.message?.includes('RCTEventEmitter.receiveEvent()')
+  ) {
+    return; // swallow non-fatal bridge timing error
+  }
+  originalHandler(error, isFatal);
+});
+
 import {
   useFonts,
   DMSans_300Light,
