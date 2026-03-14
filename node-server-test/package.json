@@ -1,0 +1,28 @@
+{
+  "name": "gtt-api-server",
+  "version": "1.0.0",
+  "description": "Backend API server per l'app GTT Torino",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "8.5.0",
+    "@fastify/rate-limit": "8.1.1",
+    "adm-zip": "0.5.12",
+    "axios": "^1.13.6",
+    "csv-parse": "5.5.6",
+    "expo-location": "~55.1.2",
+    "express": "^5.2.1",
+    "fastify": "^5.8.2",
+    "gtfs-realtime-bindings": "^1.1.1",
+    "node-cache": "5.1.2",
+    "node-fetch": "^3.3.2",
+    "protobufjs": "^7.5.4"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

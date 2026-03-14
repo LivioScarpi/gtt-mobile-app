@@ -1,0 +1,12 @@
+Dir 0:
+  23 stops: 217 trips (headsign: "CENTRO, PIAZZA STATUTO")
+  18 stops: 147 trips (headsign: "CENTRO, PIAZZA STATUTO")
+  7 stops: 4 trips (headsign: "CENTRO, PIAZZA STATUTO")
+  Max trip: 27944605U with 23 stops
+Dir 1:
+  24 stops: 214 trips (headsign: "MIRAFIORI SUD, CORSO SETTEMBRINI")
+  19 stops: 9 trips (headsign: "MIRAFIORI SUD, CORSO SETTEMBRINI")
+  18 stops: 140 trips (headsign: "MIRAFIORI SUD, P.LE CAIO MARIO")
+  14 stops: 4 trips (headsign: "MIRAFIORI SUD, P.LE CAIO MARIO")
+  7 stops: 2 trips (headsign: "EINAUDI")
+  Max trip: 27944607U with 24 stops
